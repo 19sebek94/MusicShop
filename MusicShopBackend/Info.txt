@@ -1,0 +1,11 @@
+Catalog.API
+- Local: 5000
+- Development: 8000:80
+
+Auth.API
+- Local: 5001
+- Development: 8001:80
+
+OcelotApiGateway:
+- Local: 5010
+- Development: 8010:80

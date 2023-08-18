@@ -1,0 +1,62 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span routerLink="/home">Music Shop</span>
+      <span class="example-spacer"></span>
+      <form class="form-container"  *ngIf="!loggedIn()" #loginForm="ngForm" (ngSubmit)="login()">
+        <!-- Email -->
+        <mat-form-field class="example-full-width">
+          <mat-label>Email</mat-label>
+          <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+                 placeholder="Email" [(ngModel)]="model.username" required>
+          <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+          <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+            Please enter a valid email address
+          </mat-error>
+          <mat-error *ngIf="emailFormControl.hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <!-- Password -->
+        <mat-form-field class="example-full-width">
+          <mat-label>Password</mat-label>
+          <input type="password" matInput [formControl]="passwordFormControl" [errorStateMatcher]="matcher"
+                 placeholder="Password"  [(ngModel)]="model.password" required>
+          <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+          <mat-error *ngIf="passwordFormControl.hasError('password') && !passwordFormControl.hasError('required')">
+            Please enter password
+          </mat-error>
+          <mat-error *ngIf="passwordFormControl.hasError('required')">
+            Password is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <button mat-raised-button type="submit">Basic</button>
+    </form>
+
+    <ng-container *ngIf="loggedIn()" >
+      <button mat-icon-button>
+        <mat-icon class="icon-display">shopping_cart</mat-icon>
+      </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" [matMenuTriggerFor]="menu">
+        <mat-icon class="icon-display">account_circle</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item routerLink="/profile">
+          <mat-icon>person_outline</mat-icon>
+          <span>Profile</span>
+        </button>
+        <button mat-menu-item disabled>
+          <mat-icon>voicemail</mat-icon>
+          <span>Check voice mail</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>notifications_off</mat-icon>
+          <span>Disable alerts</span>
+        </button>
+        <button mat-menu-item (click)="logout()">
+            <mat-icon>logout</mat-icon>
+            <span>Logout</span>
+          </button>
+      </mat-menu>
+    </ng-container>
+    </mat-toolbar-row>
+  </mat-toolbar>

@@ -1,0 +1,22 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+  .mat-toolbar {
+    padding-top: 16px; /* Adjust as needed for top spacing */
+    /* padding-bottom: 16px;  */
+  }
+  
+  /* .form-container {
+    padding: 16px; 
+  } */
+  
+  /* Adjust form field appearance for better fit */
+  .mat-form-field {
+    width: 100%; /* Make form fields take full width */
+    margin-bottom: 16px; /* Adjust for spacing between form fields */
+  }
+
+  .icon-display {
+    transform: scale(2);
+ }

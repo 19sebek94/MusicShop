@@ -1,0 +1,10 @@
+  <!-- <mat-grid-list cols="4" rowHeight="2:1">
+  <div *ngFor="let instrument of instruments">
+    <app-instrument-card [instrument]="instrument"></app-instrument-card>
+  </div>
+</mat-grid-list> -->
+<mat-grid-list cols="3">
+  <mat-grid-tile *ngFor="let instrument of instruments">
+    <app-instrument-card [instrument]="instrument"></app-instrument-card>
+  </mat-grid-tile>
+</mat-grid-list> 
